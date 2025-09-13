@@ -1,0 +1,124 @@
+/* style3.css */
+body {
+    background-color: #f8bbd0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow: hidden;
+}
+
+.container {
+    background-color: white;
+    padding: 40px 60px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 2s ease-in-out;
+}
+
+h1 {
+    color: #e91e63;
+    font-size: 2.5em;
+    animation: textPop 1.5s ease-out;
+}
+
+.heart-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #e91e63;
+    transform: rotate(-45deg);
+    animation: heartBeat 2s infinite ease-in-out, floatUp 4s infinite linear;
+    opacity: 0;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #e91e63;
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -10px;
+    left: 0;
+}
+
+.heart:after {
+    top: 0;
+    left: 10px;
+}
+
+.heart:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 4s;
+}
+
+.heart:nth-child(2) {
+    left: 35%;
+    animation-delay: 1s;
+    animation-duration: 5s;
+}
+
+.heart:nth-child(3) {
+    left: 60%;
+    animation-delay: 2s;
+    animation-duration: 3.5s;
+}
+
+.heart:nth-child(4) {
+    left: 85%;
+    animation-delay: 3s;
+    animation-duration: 4.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes textPop {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1) rotate(-45deg); }
+    50% { transform: scale(1.1) rotate(-45deg); }
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(100vh) rotate(-45deg);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(-50px) rotate(-45deg);
+        opacity: 1;
+    }
+}
